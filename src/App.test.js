@@ -23,7 +23,8 @@ describe('TODO list tests', () => {
   test('add and remove item from TODO list', () => {
     wrapper.find('#insert').simulate('change', { target: { value: 'simple string' } })
     wrapper.find('#add-form').simulate('submit', { preventDefault: () => {} })
+    expect(wrapper.find('#todo-list').children().text()).not.toBe('The list is empty =(')
     wrapper.find('#todo-list').children().first().dive().find('#remove-btn').simulate('click')
-    expect(wrapper.find('#todo-list').children()).toHaveLength(0)
+    expect(wrapper.find('#todo-list').children().text()).toBe('The list is empty =(')
   });
 })

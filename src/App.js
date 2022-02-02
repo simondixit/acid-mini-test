@@ -27,7 +27,7 @@ function App() {
       inputElement = document.getElementById('insert')
 
     dispatch({ type: 'submit', todoList: array })
-    inputElement.focus()
+    inputElement && inputElement.focus()
   }
 
   const handleChange = event => dispatch({ type: 'changeInputValue', inputValue: event.target.value })
